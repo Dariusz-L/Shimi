@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Authors>Dariusz Luśnia</Authors>
+    <Company>Dariusz Luśnia</Company>
+    <Description>Minimalistic library which allows for replacing static, sealed and non-virtual methods return values, which you can use for testing your code. It was created as an alternative to expensive Microsoft Fakes and JustMock libraries.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/Dariusz-L/Shimi</PackageProjectUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Lib.Harmony" Version="2.2.1" />
+  </ItemGroup>
+
+</Project>
