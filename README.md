@@ -23,8 +23,12 @@ Check this out: [Stop overusing interfaces](https://blog.hovland.xyz/2017-04-22-
   [Test]
   public void GivenNoShimsBefore_WhenModifiedDateTimeNow_ThenCorrect() // still learning to better name tests
   {
+      // This will replace any call for DateTime.Now to DateTime.MinValue
+      // The handle to this change resides in 'out var shim' variable, so you can revert the change later
       Shim.ResultOf(() => DateTime.Now).To(DateTime.MinValue, out var shim);
       Assert.AreEqual(DateTime.MinValue, DateTime.Now);
+      
+      // Remember to clear shim out, so it doesn't affect other code
       Shim.Clear(shim);
       Assert.AreNotEqual(DateTime.MinValue, DateTime.Now);
   }
