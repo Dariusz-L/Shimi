@@ -11,12 +11,20 @@
     <PackageProjectUrl>https://github.com/Dariusz-L/Shimi</PackageProjectUrl>
 	<ImplicitUsings>disable</ImplicitUsings>
 	<PackageTags>shim; fake; unit testing</PackageTags>
-	<PackageReleaseNotes>v.1.0.1</PackageReleaseNotes>
+	<PackageReleaseNotes></PackageReleaseNotes>
 	<RepositoryUrl>https://github.com/Dariusz-L/Shimi.git</RepositoryUrl>
-	<FileVersion>1.0.1</FileVersion>
-	<AssemblyVersion>1.0.1</AssemblyVersion>
-	<Version>1.0.1</Version>
+	<FileVersion>1.0.2</FileVersion>
+	<AssemblyVersion>1.0.2</AssemblyVersion>
+	<Version>1.0.2</Version>
+	<PackageIcon>shimi.png</PackageIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\shimi.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Lib.Harmony" Version="2.2.1" />
