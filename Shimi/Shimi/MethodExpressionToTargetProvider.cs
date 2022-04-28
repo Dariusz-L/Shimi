@@ -3,7 +3,7 @@ using System.Reflection;
 
 namespace Shimi
 {
-    public class MethodExpressionToTargetProvider
+    internal class MethodExpressionToTargetProvider
     {
         public static object GetTargetFrom(MethodCallExpression expression)
         {

@@ -5,7 +5,7 @@ using System.Reflection;
 
 namespace Shimi
 {
-    public static class ShimCollection<TResult>
+    internal static class ShimCollection<TResult>
     {
         private static readonly List<Shim<TResult>> _shims = new List<Shim<TResult>>();
 

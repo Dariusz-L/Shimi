@@ -7,31 +7,31 @@ namespace Shimi
     public class ArtifactForReplace<TResult>
     {
         public object Target { get; }
-        public MethodInfo MethodInfo { get; }
+        public MethodInfo Method { get; }
 
-        public ArtifactForReplace(object target, MethodInfo methodInfo)
+        public ArtifactForReplace(object target, MethodInfo method)
         {
             Target = target;
-            MethodInfo = methodInfo;
+            Method = method;
         }
 
-        public void To(TResult value, out Shim<TResult> shim)
+        public void To(TResult result, out Shim<TResult> shim)
         {
-            string id = ShimCollection<TResult>.GetIDOf(MethodInfo);
+            string id = ShimCollection<TResult>.GetIDOf(Method);
 
             var originalMethods = Harmony.GetAllPatchedMethods();
-            if (!originalMethods.Contains(MethodInfo))
+            if (!originalMethods.Contains(Method))
             {
                 var prefix = AccessTools.Method(typeof(ShimCollection<TResult>), nameof(ShimCollection<TResult>.Prefix));
 
                 var harmony = new Harmony(id);
-                harmony.Patch(MethodInfo, new HarmonyMethod(prefix));
+                harmony.Patch(Method, new HarmonyMethod(prefix));
             }
 
-            shim = new Shim<TResult>(id, Target, MethodInfo, value);
+            shim = new Shim<TResult>(id, Target, Method, result);
             ShimCollection<TResult>.Add(shim);
         }
 
-        public void To(TResult value) => To(value, out var fake);
+        public void To(TResult value) => To(value, out var shim);
     }
 }

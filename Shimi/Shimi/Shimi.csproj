@@ -9,6 +9,13 @@
     <Description>Minimalistic library which allows for replacing static, sealed and non-virtual methods return values, which you can use for testing your code. It was created as an alternative to expensive Microsoft Fakes and JustMock libraries.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/Dariusz-L/Shimi</PackageProjectUrl>
+	<ImplicitUsings>disable</ImplicitUsings>
+	<PackageTags>shim; fake; unit testing</PackageTags>
+	<PackageReleaseNotes>v.1.0.1</PackageReleaseNotes>
+	<RepositoryUrl>https://github.com/Dariusz-L/Shimi.git</RepositoryUrl>
+	<FileVersion>1.0.1</FileVersion>
+	<AssemblyVersion>1.0.1</AssemblyVersion>
+	<Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
