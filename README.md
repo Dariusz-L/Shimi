@@ -6,7 +6,7 @@
 
 Please, treat it like a nice addition to your collection of traditional testing libraries. 
 
-Check this out: [Stop oversuing interfaces](https://blog.hovland.xyz/2017-04-22-stop-overusing-interfaces/).
+Check this out: [Stop overusing interfaces](https://blog.hovland.xyz/2017-04-22-stop-overusing-interfaces/).
 
 
 ## Installation
