@@ -7,7 +7,7 @@ namespace Shimi.Tests
     public class ShimTests_Mock
     {
         [Test]
-        public void ReplaceNot_NSubstituteMock()
+        public void Replace_NSubstituteMock()
         {
             var x = Substitute.For<IX>();
             Shim.ResultOf(() => x.InstanceMethod()).To(10);
@@ -15,7 +15,7 @@ namespace Shimi.Tests
         }
 
         [Test]
-        public void ReplaceNot_MoqMock()
+        public void Replace_MoqMock()
         {
             var x = new Mock<IX>().Object;
             Shim.ResultOf(() => x.InstanceMethod()).To(10);
