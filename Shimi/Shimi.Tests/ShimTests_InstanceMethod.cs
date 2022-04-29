@@ -15,6 +15,15 @@ namespace Shimi.Tests
         }
 
         [Test]
+        public void Replace_OfInterface()
+        {
+            IX x = new X();
+
+            Shim.ResultOf(() => x.InstanceMethod()).To(10);
+            Assert.AreEqual(10, x.InstanceMethod());
+        }
+
+        [Test]
         public void Replace_WithArg()
         {
             var x = new X();

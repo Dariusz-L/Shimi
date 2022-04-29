@@ -13,9 +13,9 @@
 	<PackageTags>shim; fake; unit testing</PackageTags>
 	<PackageReleaseNotes></PackageReleaseNotes>
 	<RepositoryUrl>https://github.com/Dariusz-L/Shimi.git</RepositoryUrl>
-	<FileVersion>1.0.2</FileVersion>
-	<AssemblyVersion>1.0.2</AssemblyVersion>
-	<Version>1.0.2</Version>
+	<FileVersion>1.0.4</FileVersion>
+	<AssemblyVersion>1.0.4</AssemblyVersion>
+	<Version>1.0.4</Version>
 	<PackageIcon>shimi.png</PackageIcon>
   </PropertyGroup>
 

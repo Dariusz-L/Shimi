@@ -19,7 +19,12 @@ namespace Shimi
 
         public static MethodInfo GetMethodFrom(MethodCallExpression expression)
         {
-            return expression.Method;
+            var target = GetTargetFrom(expression);
+            if (target == null)
+                return expression.Method;
+
+            var targetType = target.GetType();
+            return targetType.GetMethod(expression.Method.Name);
         }
     }
 }
