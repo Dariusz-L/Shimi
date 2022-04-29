@@ -47,10 +47,3 @@ Check this out: [Stop overusing interfaces](https://blog.hovland.xyz/2017-04-22-
    - Any kind of expression, method, instance which is not covered by a test might not work.
 	 Be sure to check [it](Shimi/Shimi.Tests).
 	 They will be updated as time goes by to cover more cases.
-   
-   - doesn't work for mock objects from other libraries with as they have no defined method body
-   ```c#
-   // NSubstitute lib
-   x = Substitute.For<IX>(); // mock IX interface
-   Shim.ResultOf(() => x.InstanceMethod()).To(10); // throws exception!
-   ```
