@@ -47,10 +47,26 @@ Check this out: [Stop overusing interfaces](https://blog.hovland.xyz/2017-04-22-
    - Any kind of expression, method, instance which is not covered by a test might not work.
 	 Be sure to check [it](Shimi/Shimi.Tests).
 	 They will be updated as time goes by to cover more cases.
-   
-   - doesn't work for mock objects from other libraries with as they have no defined method body
+	 
+   - Currently, you cannot patch:
+       - any kind of instance generic methods :( 
+       - static generic methods with more than one argument where at least one of them is of reference type.
+       
    ```c#
-   // NSubstitute lib
-   x = Substitute.For<IX>(); // mock IX interface
-   Shim.ResultOf(() => x.InstanceMethod()).To(10); // throws exception!
+   public class D {} // struct will work
+   [Test]
+   public void Replace_ExtensionMethod_WhenGeneric_WithClassTypeParameter2()
+   {
+       var x = new X();
+       
+       // with one argument it will work
+       // X.StaticGenericMethod won't be replaced.. Beware
+       Shim.ResultOf(() => X.StaticGenericMethod(x, x)).To(x);
+	
+       // throws exception
+       Shim.ResultOf(() => x.InstanceGenericMethod(x)).To(x);
+       
+       Assert.AreEqual(x, X.StaticGenericMethod(x));  // throws exception
+       Assert.AreEqual(x, X.InstanceGenericMethod(x));  // can't even reach here...
+   }
    ```
