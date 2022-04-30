@@ -48,18 +48,25 @@ Check this out: [Stop overusing interfaces](https://blog.hovland.xyz/2017-04-22-
 	 Be sure to check [it](Shimi/Shimi.Tests).
 	 They will be updated as time goes by to cover more cases.
 	 
-   - Currently, you cannot patch generic methods with more than one argument where at least one of them is of reference type. It's due to some issues in Harmony library. 
+   - Currently, you cannot patch:
+       - any kind of instance generic methods :( 
+       - static generic methods with more than one argument where at least one of them is of reference type.
+       
    ```c#
    public class D {} // struct will work
    [Test]
    public void Replace_ExtensionMethod_WhenGeneric_WithClassTypeParameter2()
    {
-       var arg = new D();
+       var x = new X();
        
        // with one argument it will work
-       Shim.ResultOf(() => X.StaticGenericMethod(arg, arg)).To(arg, out var shim);
-	
        // X.StaticGenericMethod won't be replaced.. Beware
-       Assert.AreEqual(arg, X.StaticGenericMethod(arg, arg));
+       Shim.ResultOf(() => X.StaticGenericMethod(x, x)).To(x);
+	
+       // throws exception
+       Shim.ResultOf(() => x.InstanceGenericMethod(x)).To(x);
+       
+       Assert.AreEqual(x, X.StaticGenericMethod(x));  // throws exception
+       Assert.AreEqual(x, X.InstanceGenericMethod(x));  // can't even reach here...
    }
    ```
